@@ -16,6 +16,7 @@ Following are few highlights:
 * Takes a single file as argument
 * Takes a folder as argument and selects a random wallpaper from it
 * Takes `--gray` as parameter to make the wallpaper grayscale
+* `--gray` makes wallpaper look good with black and grayish minimal themes
 * Wallpaper changed to grayscale are perfectly balanced in RGB color property
 * When run without argument this script selects a random wallpaper from `pic_dir` variable defined in script
 
