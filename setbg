@@ -1,12 +1,5 @@
 #!/usr/bin/env sh
 
-# write a help menu
-
-
-# TODO:
-# add parameter so that if setbg is set in .xprofile etc. it doesn't change the wallpaper everytime on startup of system
-
-
 # set wallpaper
 save_file="$HOME/.config/wall.png"
 pic_dir="$HOME/Pictures/bgwallpapers"
