@@ -1,23 +1,33 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+# write a help menu
+
+
+# TODO:
+# add parameter so that if setbg is set in .xprofile etc. it doesn't change the wallpaper everytime on startup of system
+
 
 # set wallpaper
-save_file="$HOME/.config/wall.png"
-pic_dir="$HOME/Pictures/bgwallpapers"
+save_file="/home/$(logname)/.config/wall.png"
+pic_dir="/home/$(logname)/Pictures/bgwallpapers"
+time_to_sleep="1800"
 
 # help menu
 function get_help() {
-	printf "Usage:\tsetbg [--gray] [Options]\n\n"
-	printf "\t[no arg]:\tIf no arg then sets random wallpaper from specified directory in script\n"
-	printf "\t[filename]:\tIf first arg is image then set it as Wallpaper\n"
-	printf "\t[directory]:\tIf first arg is directory then choose an image randomly\n"
-	printf "\t\t\tand set as wallpaper\n"
-	printf "\t--gray:\t\tIf provided arg with no file or directory name then\n"
-	printf "\t\t\tchooses a random wallpaper from specified directory in script\n"
-	printf "\t--gray [path]:\tSame as above options but changes image to grayscale\n"
-	printf "\t--autochange:\tput script with this parameter on startup utility\n"
-	printf "\t\t\tand it'll change your wallpaper everytime on startup\n"
-	printf "\t--help:\t\tShow help\n"
+	printf "Usage:\tsetbg [--gray] [Options]\n\n\n"
+	printf "\t[no arg]:\t\tIf no arg then sets random wallpaper from specified directory in script\n\n"
+	printf "\t[filename]:\t\tIf first arg is image then set it as Wallpaper\n\n"
+	printf "\t[directory]:\t\tIf first arg is directory then choose an image randomly\n"
+	printf "\t\t\t\tand set as wallpaper\n\n"
+	printf "\t--gray:\t\t\tIf provided arg with no file or directory name then\n"
+	printf "\t\t\t\tchooses a random wallpaper from specified directory in script\n\n"
+	printf "\t--gray [path]:\t\tSame as above options but changes image to grayscale\n\n"
+	printf "\t--autochange, -a:\tput script with this parameter on startup utility\n"
+	printf "\t\t\t\tand it'll change your wallpaper everytime on startup\n\n"
+	printf "\t--daemonize yes:\tmakes the script set random wallpaper\n\n"
+	printf "\t--help:\t\t\tShow help\n\n"
 	printf "\nChange <pic_dir> variable in script to the desired path of wallpaper's directory\n"
+	printf "Change <time_to_sleep> variable provided on top of script according to you\n\n"
 	exit 0
 }
 
@@ -31,7 +41,7 @@ function convert_to_gray() {
 	notify-send -t 1000 "conversion finished"
 }
 
-[ "$1" == "--help" ] && get_help
+[ "$1" = "--help" ] && get_help
 
 # if file given, then look no further
 [ -f "$1" ] && \
