@@ -31,7 +31,8 @@ function get_help() {
 	printf "\t--restart:\t\tScript kills and restarts itself again as daemon\n"
 	printf "\t--help:\t\t\tShow help\n\n"
 	printf "\nChange <pic_dir> variable in script to the desired path of wallpaper's directory\n"
-	printf "Change <time_to_sleep> variable provided on top of script according to you\n\n"
+	printf "Change <time_to_sleep> variable provided on top of script according to you\n"
+	printf "Wallpaper changed to grayscale are perfectly balanced in RGB color property\n"
 	exit 0
 }
 
